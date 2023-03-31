@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Service
 public class UserService {
-    ExternalApiService externalApiService;
+    final private ExternalApiService externalApiService;
+
     public UserProfile getUserProfile(String userId) {
         String userName = externalApiService.getUserName(userId);
         int userAge = externalApiService.getUserAge(userId);

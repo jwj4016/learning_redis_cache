@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 public class ApiController {
-    UserService userService;
+    final private UserService userService;
 
     @GetMapping("/users/{userId}/profile")
     public UserProfile getUserProfile(@PathVariable String userId){
