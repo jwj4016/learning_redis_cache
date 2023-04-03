@@ -1,5 +1,6 @@
 package com.example.learning_redis_cache.service;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,7 +23,9 @@ public class ExternalApiService {
         return "";
     }
 
+    @Cacheable(cacheNames = "userAgeCache", key = "#userId")
     public int getUserAge(String userId) {
+        System.out.println("2. getUserAge 메소드 내부입니다.");
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {

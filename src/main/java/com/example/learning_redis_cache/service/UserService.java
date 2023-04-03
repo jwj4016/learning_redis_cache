@@ -17,6 +17,7 @@ public class UserService {
     final private StringRedisTemplate redisTemplate;
 
     public UserProfile getUserProfile(String userId) {
+        System.out.println("*******************start*******************");
         StopWatch redisConnectionStopWatch = new StopWatch();
         StopWatch externalApiStopWatch = new StopWatch();
 
@@ -36,8 +37,10 @@ public class UserService {
             System.out.println("External API 시간 : " + externalApiStopWatch.getTotalTimeSeconds());
         }
 
+        System.out.println("1. getUSerAge 메소드가 호출됩니다.");
         int userAge = externalApiService.getUserAge(userId);
 
+        System.out.println("*******************end*******************");
         return new UserProfile(userName, userAge);
     }
 }
